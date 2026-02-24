@@ -31,7 +31,7 @@
                     keyframes: {
                         scroll: {
                             '0%': { transform: 'translateX(0)' },
-                            '100%': { transform: 'translateX(calc(-100% - 4rem))' },
+                            '100%': { transform: 'translateX(calc(-100% - 4rem))' }, /* Espacement ajusté pour la boucle */
                         },
                         fadeInUp: {
                             '0%': { opacity: '0', transform: 'translateY(30px)' },
@@ -43,6 +43,14 @@
         }
     </script>
     <style>
+        /* Empêcher la sélection/surlignage sur tout le site */
+        * {
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
         body {
             background-color: #050505;
             color: white;
@@ -219,7 +227,7 @@
         }
     </style>
 </head>
-<body class="antialiased selection:bg-[#131644] selection:text-white font-sans">
+<body class="antialiased font-sans select-none">
 
     <div class="noise-overlay"></div>
 
@@ -253,6 +261,7 @@
         <div class="relative z-10 px-6 md:px-20 max-w-7xl mx-auto w-full flex flex-col justify-center items-center md:items-start text-center md:text-left pt-20">
             <div class="max-w-5xl pt-0 w-full animate-fade-in-up">
                 <h1 class="font-bold leading-tight tracking-tight mb-8">
+                    <!-- Titre réduit pour mobile et agrandi pour desktop -->
                     <span class="block text-3xl md:text-5xl lg:text-6xl mb-3 md:mb-5 drop-shadow-xl">
                         Vous avez déjà vu des vidéos comme celles-ci.
                     </span>
@@ -291,8 +300,8 @@
                             <img src="5.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 5">
                             <img src="6.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 6">
                             <img src="7.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 7">
-                            <!-- Logo 8: Original (sans invert) pour ne pas boucher les trous -->
-                            <img src="8.png" class="h-6 md:h-8 w-auto object-contain opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 8">
+                            <!-- Logo 8: Grayscale pour garder le blanc et noircir la couleur. Retrouve ses couleurs au survol -->
+                            <img src="8.png" class="h-6 md:h-8 w-auto object-contain grayscale opacity-60 transition-all duration-300 hover:grayscale-0 hover:opacity-100" alt="Logo 8">
                             <!-- Logo 9: Reste blanc au survol (couleur d'origine noire) -->
                             <img src="9.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 9">
                         </div>
@@ -304,7 +313,7 @@
                             <img src="5.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 5">
                             <img src="6.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 6">
                             <img src="7.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 7">
-                            <img src="8.png" class="h-6 md:h-8 w-auto object-contain opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 8">
+                            <img src="8.png" class="h-6 md:h-8 w-auto object-contain grayscale opacity-60 transition-all duration-300 hover:grayscale-0 hover:opacity-100" alt="Logo 8">
                             <img src="9.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 9">
                         </div>
                     </div>
