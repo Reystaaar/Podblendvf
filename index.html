@@ -250,7 +250,7 @@
     <section id="hero" class="relative min-h-[100dvh] w-full overflow-hidden bg-[#050505] text-white bg-grid-dark flex flex-col justify-center items-center">
         <div class="absolute inset-0 z-0">
             <video autoplay muted loop playsinline webkit-playsinline class="object-cover w-full h-full opacity-80 scale-105">
-                <source src="hero-video.webm" type="video/webm">
+                <source src="hero-video.mp4" type="video/mp4">
             </video>
             <!-- Overlay plus clair (bg-black/20) pour mieux voir la vidéo -->
             <div class="absolute inset-0 bg-black/20"></div>
@@ -284,42 +284,43 @@
         </div>
 
         <!-- BANDEROLE DES LOGOS SLEEK & COMPACTE -->
-        <div class="absolute bottom-0 w-full z-20 border-t border-white/10 bg-black py-3 md:py-4">
-             <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6">
-                <!-- Zone des logos -->
-                <div class="flex overflow-hidden relative w-full md:w-3/4 mask-image-gradient">
+        <div class="absolute bottom-0 w-full z-20 border-t border-white/10 bg-black py-2 md:py-3">
+             <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-4 md:gap-8">
+                <!-- Zone des logos (utilise flex-1 pour prendre tout l'espace proprement) -->
+                <div class="flex overflow-hidden relative w-full flex-1 mask-image-gradient">
                     <div class="flex gap-10 md:gap-14 overflow-hidden w-full">
                         <div class="flex animate-scroll whitespace-nowrap items-center gap-10 md:gap-14 shrink-0 min-w-full justify-around">
-                            <!-- Logos de petite taille (h-6 md:h-8) pour affiner la banderole -->
+                            <!-- Logos standards -->
                             <img src="1.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 1">
                             <img src="2.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 2">
-                            <!-- Logos 3 et 4: Restent blancs au survol (couleur d'origine noire) -->
-                            <img src="3.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 3">
-                            <img src="4.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 4">
-                            <!-- Logos standards -->
+                            <!-- Logo 3: Très réduit (h-4 md:h-5) -->
+                            <img src="3.png" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 3">
+                            <!-- Logo 4: Légèrement réduit (h-5 md:h-6) -->
+                            <img src="4.png" class="h-5 md:h-6 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 4">
+                            <!-- Logo 5 standard -->
                             <img src="5.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 5">
-                            <img src="6.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 6">
+                            <!-- Logo 6: Très réduit (h-4 md:h-5) -->
+                            <img src="6.png" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 6">
+                            <!-- Logo 7, 8, 9 standards -->
                             <img src="7.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 7">
-                            <!-- Logo 8: Grayscale pour garder le blanc et noircir la couleur. Retrouve ses couleurs au survol -->
                             <img src="8.png" class="h-6 md:h-8 w-auto object-contain grayscale opacity-60 transition-all duration-300 hover:grayscale-0 hover:opacity-100" alt="Logo 8">
-                            <!-- Logo 9: Reste blanc au survol (couleur d'origine noire) -->
                             <img src="9.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 9">
                         </div>
                         <div class="flex animate-scroll whitespace-nowrap items-center gap-10 md:gap-14 shrink-0 min-w-full justify-around" aria-hidden="true">
                             <img src="1.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 1">
                             <img src="2.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 2">
-                            <img src="3.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 3">
-                            <img src="4.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 4">
+                            <img src="3.png" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 3">
+                            <img src="4.png" class="h-5 md:h-6 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 4">
                             <img src="5.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 5">
-                            <img src="6.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 6">
+                            <img src="6.png" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 6">
                             <img src="7.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 7">
                             <img src="8.png" class="h-6 md:h-8 w-auto object-contain grayscale opacity-60 transition-all duration-300 hover:grayscale-0 hover:opacity-100" alt="Logo 8">
                             <img src="9.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 9">
                         </div>
                     </div>
                 </div>
-                <!-- Zone texte (+100 entreprises) - Ajusté pour la nouvelle taille -->
-                <div class="md:w-1/4 text-right border-l border-white/20 pl-6 hidden md:flex flex-col justify-center">
+                <!-- Zone texte (+100 entreprises) - Collé correctement à droite -->
+                <div class="text-right border-l border-white/20 pl-6 hidden md:flex flex-col justify-center shrink-0">
                     <p class="text-[10px] md:text-xs font-medium text-gray-400 leading-tight">
                         <span class="text-white font-bold block mb-0.5">+100 entreprises</span>
                         accompagnées
