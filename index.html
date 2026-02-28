@@ -4,9 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Podblend - Vos studios d'enregistrement</title>
+    
+    <!-- OPTIMISATION SEO : Meta Description ajoutée -->
+    <meta name="description" content="Podblend : Votre studio d'enregistrement premium à Paris pour podcasts, vidéos d'entreprise et interviews. Matériel haut de gamme inclus.">
+    
+    <!-- OPTIMISATION PERFS : Préconnexion aux polices Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
@@ -31,7 +39,7 @@
                     keyframes: {
                         scroll: {
                             '0%': { transform: 'translateX(0)' },
-                            '100%': { transform: 'translateX(calc(-100% - 4rem))' }, /* Espacement ajusté pour la boucle */
+                            '100%': { transform: 'translateX(calc(-100% - 4rem))' },
                         },
                         fadeInUp: {
                             '0%': { opacity: '0', transform: 'translateY(30px)' },
@@ -218,7 +226,7 @@
             font-family: 'Space Grotesk', monospace;
             cursor: pointer;
             transition: all 0.4s ease;
-            color: #6b7280;
+            color: #9ca3af; /* Rendu légèrement plus contrasté pour l'accessibilité */
         }
         .switch-btn.active {
             background: white;
@@ -234,7 +242,8 @@
     <nav class="fixed w-full z-50 top-0 left-0 px-4 md:px-6 py-6 mix-blend-difference text-white transition-all duration-300">
         <div class="flex justify-between items-center max-w-7xl mx-auto">
             <a href="#" class="block w-20 md:w-28 hover:opacity-80 transition cursor-pointer">
-                <img src="votre-logo.webp" alt="Podblend" class="w-full h-auto">
+                <!-- OPTIMISATION : width, height et fetchpriority pour l'image du logo -->
+                <img src="votre-logo.webp" alt="Podblend" class="w-full h-auto" width="112" height="32" fetchpriority="high">
             </a>
             
             <div class="hidden md:flex gap-8 font-medium text-sm tracking-wide">
@@ -290,32 +299,28 @@
                 <div class="flex overflow-hidden relative w-full flex-1 mask-image-gradient">
                     <div class="flex gap-10 md:gap-14 overflow-hidden w-full">
                         <div class="flex animate-scroll whitespace-nowrap items-center gap-10 md:gap-14 shrink-0 min-w-full justify-around">
-                            <!-- Logos standards -->
-                            <img src="1.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 1">
-                            <img src="2.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 2">
-                            <!-- Logo 3: Très réduit (h-4 md:h-5) -->
-                            <img src="3.png" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 3">
-                            <!-- Logo 4: Légèrement réduit (h-5 md:h-6) -->
-                            <img src="4.png" class="h-5 md:h-6 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 4">
-                            <!-- Logo 5 standard -->
-                            <img src="5.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 5">
-                            <!-- Logo 6: Très réduit (h-4 md:h-5) -->
-                            <img src="6.png" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 6">
-                            <!-- Logo 7, 8, 9 standards -->
-                            <img src="7.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 7">
-                            <img src="8.png" class="h-6 md:h-8 w-auto object-contain grayscale opacity-60 transition-all duration-300 hover:grayscale-0 hover:opacity-100" alt="Logo 8">
-                            <img src="9.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 9">
+                            <!-- OPTIMISATION : Ajout de width et height explicites pour le CLS -->
+                            <img src="1.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 1" width="100" height="32" fetchpriority="high">
+                            <img src="2.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 2" width="100" height="32" fetchpriority="high">
+                            <img src="3.png" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 3" width="100" height="20" fetchpriority="high">
+                            <img src="4.png" class="h-5 md:h-6 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 4" width="100" height="24" fetchpriority="high">
+                            <img src="5.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 5" width="100" height="32" fetchpriority="high">
+                            <img src="6.png" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 6" width="100" height="20">
+                            <img src="7.png" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 7" width="100" height="20">
+                            <img src="8.png" class="h-6 md:h-8 w-auto object-contain grayscale opacity-60 transition-all duration-300 hover:grayscale-0 hover:opacity-100" alt="Logo 8" width="100" height="32">
+                            <img src="9.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 9" width="100" height="32">
                         </div>
                         <div class="flex animate-scroll whitespace-nowrap items-center gap-10 md:gap-14 shrink-0 min-w-full justify-around" aria-hidden="true">
-                            <img src="1.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 1">
-                            <img src="2.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 2">
-                            <img src="3.png" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 3">
-                            <img src="4.png" class="h-5 md:h-6 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 4">
-                            <img src="5.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 5">
-                            <img src="6.png" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 6">
-                            <img src="7.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 7">
-                            <img src="8.png" class="h-6 md:h-8 w-auto object-contain grayscale opacity-60 transition-all duration-300 hover:grayscale-0 hover:opacity-100" alt="Logo 8">
-                            <img src="9.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 9">
+                            <!-- OPTIMISATION : loading="lazy" pour les logos en double hors écran -->
+                            <img src="1.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 1" width="100" height="32" loading="lazy">
+                            <img src="2.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 2" width="100" height="32" loading="lazy">
+                            <img src="3.png" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 3" width="100" height="20" loading="lazy">
+                            <img src="4.png" class="h-5 md:h-6 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 4" width="100" height="24" loading="lazy">
+                            <img src="5.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 5" width="100" height="32" loading="lazy">
+                            <img src="6.png" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 6" width="100" height="20" loading="lazy">
+                            <img src="7.png" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 7" width="100" height="20" loading="lazy">
+                            <img src="8.png" class="h-6 md:h-8 w-auto object-contain grayscale opacity-60 transition-all duration-300 hover:grayscale-0 hover:opacity-100" alt="Logo 8" width="100" height="32" loading="lazy">
+                            <img src="9.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 9" width="100" height="32" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -433,7 +438,8 @@
         <div class="decor-container flex flex-col md:flex-row w-full h-auto md:h-[600px] gap-6 px-4 md:px-2">
             
             <div class="decor-item relative rounded-[2rem] overflow-hidden cursor-pointer group border border-gray-100 w-full shadow-lg hover:shadow-2xl">
-                <img src="gotham-_1_.webp" class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 md:group-hover:scale-105" alt="Le Gotham">
+                <!-- OPTIMISATION : loading lazy + width/height pour le LCP -->
+                <img src="gotham-_1_.webp" class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 md:group-hover:scale-105" alt="Le Gotham" loading="lazy" width="800" height="600">
                 <div class="absolute inset-0 bg-black/30 md:bg-black/50 md:group-hover:bg-black/10 transition duration-700"></div>
                 <div class="absolute bottom-8 left-8 whitespace-nowrap decor-info transition duration-500">
                     <h3 class="text-2xl md:text-4xl font-bold text-white drop-shadow-lg md:group-hover:translate-y-[-5px] transition-transform duration-500 origin-left">Le Gotham</h3>
@@ -444,7 +450,7 @@
             </div>
 
             <div class="decor-item relative rounded-[2rem] overflow-hidden cursor-pointer group border border-gray-100 w-full shadow-lg hover:shadow-2xl">
-                <img src="santorini-_1_.webp" class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 md:group-hover:scale-105" alt="Le Santorini">
+                <img src="santorini-_1_.webp" class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 md:group-hover:scale-105" alt="Le Santorini" loading="lazy" width="800" height="600">
                 <div class="absolute inset-0 bg-black/30 md:bg-black/50 md:group-hover:bg-black/10 transition duration-700"></div>
                 <div class="absolute bottom-8 left-8 whitespace-nowrap decor-info transition duration-500">
                     <h3 class="text-2xl md:text-4xl font-bold text-white drop-shadow-lg md:group-hover:translate-y-[-5px] transition-transform duration-500 origin-left">Le Santorini</h3>
@@ -455,7 +461,7 @@
             </div>
 
             <div class="decor-item relative rounded-[2rem] overflow-hidden cursor-pointer group border border-gray-100 w-full shadow-lg hover:shadow-2xl">
-                <img src="library-_1_.webp" class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 md:group-hover:scale-105" alt="La Bibliothèque">
+                <img src="library-_1_.webp" class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 md:group-hover:scale-105" alt="La Bibliothèque" loading="lazy" width="800" height="600">
                 <div class="absolute inset-0 bg-black/30 md:bg-black/50 md:group-hover:bg-black/10 transition duration-700"></div>
                 <div class="absolute bottom-8 left-8 whitespace-nowrap decor-info transition duration-500">
                     <h3 class="text-2xl md:text-4xl font-bold text-white drop-shadow-lg md:group-hover:translate-y-[-5px] transition-transform duration-500 origin-left">La Bibliothèque</h3>
@@ -482,8 +488,9 @@
                         <button class="switch-btn" id="btn-audio" onclick="switchPricing('audio')">AUDIO</button>
                     </div>
                      <div class="flex gap-4">
-                        <button onclick="scrollPrices('left')" class="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 active:scale-95"><i class="fa-solid fa-arrow-left"></i></button>
-                        <button onclick="scrollPrices('right')" class="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 active:scale-95"><i class="fa-solid fa-arrow-right"></i></button>
+                        <!-- OPTIMISATION : Ajout de aria-label pour l'accessibilité des boutons sans texte -->
+                        <button onclick="scrollPrices('left')" aria-label="Tarifs précédents" class="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 active:scale-95"><i class="fa-solid fa-arrow-left"></i></button>
+                        <button onclick="scrollPrices('right')" aria-label="Tarifs suivants" class="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 active:scale-95"><i class="fa-solid fa-arrow-right"></i></button>
                     </div>
                 </div>
             </div>
@@ -495,10 +502,10 @@
                     <div>
                         <h3 class="text-3xl font-bold mb-2 tracking-tight">Initiale</h3>
                         <div class="text-6xl font-black text-[#131644] mb-3 tracking-tighter">100€</div>
-                        <span class="text-xs text-gray-400 font-mono uppercase tracking-widest font-bold">/ Heure</span>
-                        <div class="w-full h-px bg-gray-100 my-8"></div>
-                        <p class="text-xs font-bold text-gray-400 mb-6 uppercase tracking-widest">Inclus :</p>
-                        <ul class="space-y-4 text-sm font-semibold text-gray-700">
+                        <span class="text-xs text-gray-500 font-mono uppercase tracking-widest font-bold">/ Heure</span>
+                        <div class="w-full h-px bg-gray-200 my-8"></div>
+                        <p class="text-xs font-bold text-gray-500 mb-6 uppercase tracking-widest">Inclus :</p>
+                        <ul class="space-y-4 text-sm font-semibold text-gray-800">
                              <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-[#3b82f6]"></span> Opérateur sur place</li>
                             <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-[#3b82f6]"></span> 3 caméras Sony A7IV</li>
                             <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-[#3b82f6]"></span> 4 micros Shure MV7</li>
@@ -529,10 +536,10 @@
                     <div>
                         <h3 class="text-3xl font-bold mb-2 tracking-tight">Complète</h3>
                         <div class="text-6xl font-black text-[#131644] mb-3 tracking-tighter">320€</div>
-                        <span class="text-xs text-gray-400 font-mono uppercase tracking-widest font-bold">/ Épisode</span>
-                        <div class="w-full h-px bg-gray-100 my-8"></div>
-                        <p class="text-xs font-bold text-gray-400 mb-6 uppercase tracking-widest">All Inclusive :</p>
-                        <ul class="space-y-4 text-sm font-semibold text-gray-700">
+                        <span class="text-xs text-gray-500 font-mono uppercase tracking-widest font-bold">/ Épisode</span>
+                        <div class="w-full h-px bg-gray-200 my-8"></div>
+                        <p class="text-xs font-bold text-gray-500 mb-6 uppercase tracking-widest">All Inclusive :</p>
+                        <ul class="space-y-4 text-sm font-semibold text-gray-800">
                              <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-[#3b82f6]"></span> Tournage + Dérush</li>
                             <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-[#3b82f6]"></span> Montage & Mixage</li>
                              <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-[#3b82f6]"></span> Intro Dynamique</li>
@@ -546,9 +553,9 @@
                     <div>
                         <h3 class="text-3xl font-bold mb-2 tracking-tight">Audio Simple</h3>
                         <div class="text-6xl font-black text-[#131644] mb-3 tracking-tighter">50€</div>
-                        <span class="text-xs text-gray-400 font-mono uppercase tracking-widest font-bold">/ Heure</span>
-                        <div class="w-full h-px bg-gray-100 my-8"></div>
-                        <ul class="space-y-4 text-sm font-semibold text-gray-700">
+                        <span class="text-xs text-gray-500 font-mono uppercase tracking-widest font-bold">/ Heure</span>
+                        <div class="w-full h-px bg-gray-200 my-8"></div>
+                        <ul class="space-y-4 text-sm font-semibold text-gray-800">
                              <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-[#3b82f6]"></span> Opérateur sur place</li>
                             <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-[#3b82f6]"></span> 4 micros Shure MV7+</li>
                             <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-[#3b82f6]"></span> Table de mixage Rodecaster Pro</li>
@@ -648,7 +655,7 @@
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 items-center text-center md:text-left">
             <div>
                  <a href="#" class="block w-24 md:w-32 mb-6 hover:opacity-80 transition cursor-pointer mx-auto md:mx-0 grayscale hover:grayscale-0 duration-500">
-                    <img src="votre-logo.webp" alt="Studio Logo" class="w-full h-auto">
+                    <img src="votre-logo.webp" alt="Studio Logo" class="w-full h-auto" loading="lazy" width="128" height="36">
                 </a>
                 <p class="text-gray-500 text-sm max-w-sm mb-4 mx-auto md:mx-0 font-medium">L'espace de création premium à Paris.</p>
                 <div class="text-gray-600 text-xs tracking-wider">© 2024 Studio Creation.</div>
@@ -660,7 +667,8 @@
                 <a href="contact.html" class="hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block transform">Contact</a>
             </div>
             <div class="w-full md:w-56 h-32 rounded-2xl overflow-hidden border border-white/10 grayscale hover:grayscale-0 transition-all duration-700 justify-self-center md:justify-self-end shadow-2xl">
-                <iframe src="https://www.google.com/maps?q=12+Place+Indira+Gandhi+92230+Gennevilliers&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <!-- OPTIMISATION : Ajout de title pour iframe (Accessibilité) et loading lazy -->
+                <iframe title="Carte Google Maps de l'emplacement du studio Podblend à Gennevilliers" src="https://www.google.com/maps?q=12+Place+Indira+Gandhi+92230+Gennevilliers&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </footer>
