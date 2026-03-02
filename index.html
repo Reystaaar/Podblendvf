@@ -258,15 +258,17 @@
     <!-- SECTION HERO : TEXTE ALIGNÉ À GAUCHE & VERTICALEMENT CENTRÉ -->
     <section id="hero" class="relative min-h-[100dvh] w-full overflow-hidden bg-[#050505] text-white">
         <div class="absolute inset-0 z-0">
-            <!-- Vidéo d'arrière-plan avec luminosité boostée (125%) -->
-            <video id="heroVideo" preload="auto" autoplay muted loop playsinline webkit-playsinline class="object-cover w-full h-full scale-105 brightness-125">
+            <!-- Vidéo d'arrière-plan à 100% de luminosité (retrait du filtre brightness) -->
+            <video id="heroVideo" preload="auto" autoplay muted loop playsinline webkit-playsinline class="object-cover w-full h-full scale-105">
                 <source src="hero-video.webm" type="video/webm">
                 <source src="hero-video.mp4" type="video/mp4">
             </video>
             
-            <!-- Retrait complet du calque assombrissant au centre ! 
-                 Uniquement un léger dégradé en haut et en bas pour que le menu et les logos restent lisibles -->
-            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 pointer-events-none"></div>
+            <!-- Calque noir fixe à 10% (filtre d'assombrissement léger) -->
+            <div class="absolute inset-0 bg-black/10 pointer-events-none"></div>
+            
+            <!-- Léger dégradé en haut et en bas pour que le menu et les logos restent parfaitement lisibles -->
+            <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none"></div>
         </div>
 
         <!-- Conteneur principal plus large (max-w-[1800px]) pour coller à gauche sur grands écrans -->
