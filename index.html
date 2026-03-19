@@ -5,53 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Podblend - Vos studios d'enregistrement</title>
     
-    <!-- OPTIMISATION SEO : Meta Description ajoutée -->
+    <!-- OPTIMISATION SEO : Meta Description -->
     <meta name="description" content="Podblend : Votre studio d'enregistrement premium à Paris pour podcasts, vidéos d'entreprise et interviews. Matériel haut de gamme inclus.">
     
-    <!-- OPTIMISATION PERFS : Préconnexion aux polices Google -->
+    <!-- OPTIMISATION PERFS : Préconnexion et Google Fonts (déjà optimisé avec display=swap) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="output.css">   
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- OPTIMISATION PERFS MAXIMALE : Fichier généré localement -->
+    <link rel="stylesheet" href="output.css">
+    
+    <!-- SUPPRESSION DE FONT-AWESOME : Remplacé par des SVG purs (gain de ~900ms) -->
     
     <!-- Script Crisp Chat -->
     <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="b9c81747-9302-4d6b-a45a-dc3739e9b8e3";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
     
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
-                        mono: ['Space Grotesk', 'monospace'],
-                    },
-                    colors: {
-                        brand: {
-                            dark: '#050505',
-                            card: '#121212',
-                            deep: '#131644',
-                            accent: '#3b82f6',
-                        }
-                    },
-                    animation: {
-                        'scroll': 'scroll 40s linear infinite',
-                        'fade-in-up': 'fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-                    },
-                    keyframes: {
-                        scroll: {
-                            '0%': { transform: 'translateX(0)' },
-                            '100%': { transform: 'translateX(calc(-100% - 4rem))' },
-                        },
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(30px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
     <style>
         body {
             background-color: #050505;
@@ -84,79 +53,26 @@
         .hide-scroll::-webkit-scrollbar { display: none; }
         .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
 
-        /* Effet fondu sur les bords de la banderole des logos */
         .mask-image-gradient {
             -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
             mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
         }
 
-        /* --- SCROLL REVEAL (OPTIMIZED) --- */
-        .reveal-item {
-            cursor: default;
-            transition: background-color 0.3s ease;
-            position: relative;
-        }
-        
-        .reveal-text-wrapper {
-            max-width: 0;
-            opacity: 0;
-            overflow: hidden;
-            transform: scale(0.95);
-            transition: max-width 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
-                        opacity 0.6s ease, 
-                        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-            white-space: nowrap;
-            margin: 0;
-        }
-
-        .reveal-item.is-visible .reveal-text-wrapper,
-        .reveal-item:hover .reveal-text-wrapper {
-            max-width: 300px;
-            opacity: 1;
-            transform: scale(1);
-            margin: 0; 
-        }
-        
-        .reveal-item.is-visible .reveal-text,
-        .reveal-item:hover .reveal-text {
-             color: white; 
-             text-shadow: 0 0 20px rgba(255,255,255,0.1);
-        }
+        /* --- SCROLL REVEAL --- */
+        .reveal-item { cursor: default; transition: background-color 0.3s ease; position: relative; }
+        .reveal-text-wrapper { max-width: 0; opacity: 0; overflow: hidden; transform: scale(0.95); transition: max-width 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1); white-space: nowrap; margin: 0; }
+        .reveal-item.is-visible .reveal-text-wrapper, .reveal-item:hover .reveal-text-wrapper { max-width: 300px; opacity: 1; transform: scale(1); margin: 0; }
+        .reveal-item.is-visible .reveal-text, .reveal-item:hover .reveal-text { color: white; text-shadow: 0 0 20px rgba(255,255,255,0.1); }
         
         /* --- FAQ --- */
-        .faq-item {
-            border-bottom: 1px solid #e5e7eb; 
-            transition: background-color 0.3s ease;
-            overflow: hidden;
-        }
+        .faq-item { border-bottom: 1px solid #e5e7eb; transition: background-color 0.3s ease; overflow: hidden; }
         .faq-item:hover { background-color: #f9fafb; }
-        .faq-trigger {
-            cursor: pointer;
-            padding: 1.5rem 0;
-            position: relative;
-            z-index: 10;
-            width: 100%;
-            text-align: left;
-            background: transparent;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .faq-content {
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease-out, padding 0.5s ease;
-        }
-        .faq-item.active .faq-content {
-            max-height: 500px;
-            opacity: 1;
-            padding-bottom: 2rem;
-        }
+        .faq-trigger { cursor: pointer; padding: 1.5rem 0; position: relative; z-index: 10; width: 100%; text-align: left; background: transparent; display: flex; justify-content: space-between; align-items: center; }
+        .faq-content { max-height: 0; opacity: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease-out, padding 0.5s ease; }
+        .faq-item.active .faq-content { max-height: 500px; opacity: 1; padding-bottom: 2rem; }
         .faq-item.active .faq-trigger { color: #131644; }
-        .faq-icon { transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        .faq-item.active .faq-icon { transform: rotate(45deg); }
-
+        .faq-icon svg { transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        
         /* --- CARD STACK --- */
         .card-stack { position: relative; width: 100%; max-width: 320px; aspect-ratio: 1/1; cursor: default; margin: 0 auto; }
         .stat-card { position: absolute; inset: 0; transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1); }
@@ -177,81 +93,47 @@
         }
 
         /* --- PRICING SUPER ZOOM --- */
-        .pricing-scroll-container {
-            display: flex;
-            gap: 2rem;
-            padding: 4rem 1rem;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
-        }
-        .pricing-card {
-            flex: 0 0 350px;
-            scroll-snap-align: center;
-            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.5s ease;
-            cursor: pointer;
-            border-radius: 24px;
-        }
+        .pricing-scroll-container { display: flex; gap: 2rem; padding: 4rem 1rem; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; }
+        .pricing-card { flex: 0 0 350px; scroll-snap-align: center; transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.5s ease; cursor: pointer; border-radius: 24px; }
         @media (min-width: 768px) {
-            .pricing-card:hover {
-                transform: scale(1.1) translateY(-10px) !important;
-                z-index: 50;
-                box-shadow: 0 40px 80px -15px rgba(0,0,0,0.8);
-            }
+            .pricing-card:hover { transform: scale(1.1) translateY(-10px) !important; z-index: 50; box-shadow: 0 40px 80px -15px rgba(0,0,0,0.8); }
         }
         @media (max-width: 768px) {
             .pricing-card { flex: 0 0 85vw; }
             .pricing-card:hover { transform: scale(1.02); }
-            h1 { line-height: 1.2 !important; }
         }
         
-        /* Switch Toggle Style */
-        .switch-container {
-            display: inline-flex;
-            background: #121212;
-            padding: 4px;
-            border-radius: 99px;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        .switch-btn {
-            padding: 10px 30px;
-            border-radius: 99px;
-            font-weight: bold;
-            font-family: 'Space Grotesk', monospace;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            color: #9ca3af; 
-        }
-        .switch-btn.active {
-            background: white;
-            color: black;
-            box-shadow: 0 4px 15px rgba(255,255,255,0.1);
-        }
+        .switch-container { display: inline-flex; background: #121212; padding: 4px; border-radius: 99px; border: 1px solid rgba(255,255,255,0.1); }
+        .switch-btn { padding: 10px 30px; border-radius: 99px; font-weight: bold; font-family: 'Space Grotesk', monospace; cursor: pointer; transition: all 0.4s ease; color: #9ca3af; }
+        .switch-btn.active { background: white; color: black; box-shadow: 0 4px 15px rgba(255,255,255,0.1); }
     </style>
 </head>
 <body class="antialiased font-sans select-none">
 
     <div class="noise-overlay"></div>
 
-    <nav id="navbar" class="fixed w-full z-50 top-0 left-0 px-6 md:px-16 lg:px-24 py-6 text-white transition-all duration-300">
+    <!-- RETOUR AU DESIGN NAVBAR MIX-BLEND MAGIQUE -->
+    <nav class="fixed w-full z-50 top-0 left-0 px-6 md:px-16 lg:px-24 py-6 text-white mix-blend-difference pointer-events-none">
         <div class="flex justify-between items-center max-w-[1800px] mx-auto w-full">
-            <a href="#" class="block w-24 md:w-32 hover:opacity-80 transition cursor-pointer">
-                <img src="votre-logo.webp" alt="Podblend" class="w-full h-auto" width="128" height="36" fetchpriority="high">
+            <a href="#" class="block w-24 md:w-32 hover:opacity-80 transition cursor-pointer pointer-events-auto">
+                <!-- OPTIMISATION : Logo en -opt.webp -->
+                <img src="votre-logo-opt.webp" alt="Podblend" class="w-full h-auto" width="128" height="36" fetchpriority="high">
             </a>
             
-            <div class="hidden md:flex gap-8 font-medium text-sm tracking-wide">
-                <a href="#hero" class="hover:text-brand-accent transition duration-300">Accueil</a>
-                <a href="#tarifs" class="hover:text-brand-accent transition duration-300">Tarifs</a>
-                <a href="#faq" class="hover:text-brand-accent transition duration-300">FAQ</a>
+            <div class="hidden md:flex gap-8 font-medium text-sm tracking-wide pointer-events-auto">
+                <a href="#hero" class="hover:text-white/70 transition duration-300">Accueil</a>
+                <a href="#tarifs" class="hover:text-white/70 transition duration-300">Tarifs</a>
+                <a href="#faq" class="hover:text-white/70 transition duration-300">FAQ</a>
             </div>
-            <a href="https://podblend.podyx.com/" target="_blank" rel="noopener noreferrer" class="bg-white text-black px-6 py-2.5 text-xs md:text-sm rounded-full font-bold hover:bg-[#131644] hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl">Se connecter</a>
+            <!-- Le bouton doit retirer le mix-blend pour ne pas être inversé -->
+            <a href="https://podblend.podyx.com/" target="_blank" rel="noopener noreferrer" class="bg-white text-black px-6 py-2.5 text-xs md:text-sm rounded-full font-bold hover:bg-gray-200 transition-all duration-300 shadow-lg pointer-events-auto">Se connecter</a>
         </div>
     </nav>
 
     <!-- SECTION HERO -->
     <section id="hero" class="relative min-h-[100dvh] w-full overflow-hidden bg-[#050505] text-white">
         <div class="absolute inset-0 z-0">
-            <!-- OPTIMISATION : aria-hidden et poster ajoutés pour la vidéo -->
+            <!-- OPTIMISATION : aria-hidden et poster -->
             <video id="heroVideo" aria-hidden="true" poster="hero-poster.webp" preload="auto" autoplay muted loop playsinline webkit-playsinline class="object-cover w-full h-full scale-105">
                 <source src="hero-video.webm" type="video/webm">
                 <source src="hero-video.mp4" type="video/mp4">
@@ -262,14 +144,9 @@
 
         <div class="relative z-10 w-full h-full min-h-[100dvh] flex flex-col justify-center max-w-[1800px] mx-auto px-6 md:px-16 lg:px-24 pt-20 pb-32">
             <div class="w-full max-w-4xl animate-fade-in-up select-text">
-                
                 <h1 class="font-bold leading-tight tracking-tight mb-6 text-left">
-                    <span class="block text-4xl md:text-5xl lg:text-7xl mb-2 md:mb-4 drop-shadow-2xl">
-                        Vous avez déjà vu des vidéos comme celles-ci.
-                    </span>
-                    <span class="block text-2xl md:text-3xl lg:text-4xl text-white/90 font-medium drop-shadow-xl">
-                        Maintenant, créez les vôtres.
-                    </span>
+                    <span class="block text-4xl md:text-5xl lg:text-7xl mb-2 md:mb-4 drop-shadow-2xl">Vous avez déjà vu des vidéos comme celles-ci.</span>
+                    <span class="block text-2xl md:text-3xl lg:text-4xl text-white/90 font-medium drop-shadow-xl">Maintenant, créez les vôtres.</span>
                 </h1>
                 
                 <p class="text-gray-100 text-base md:text-lg lg:text-xl font-medium max-w-2xl mb-10 leading-relaxed drop-shadow-xl text-left">
@@ -279,46 +156,44 @@
                 <div class="flex justify-start select-none"> 
                     <a href="https://podblend.podyx.com/" target="_blank" rel="noopener noreferrer" class="group bg-white text-black px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-sm md:text-base hover:bg-[#131644] hover:text-white transition-all duration-300 shadow-xl inline-flex items-center gap-3 border-2 border-transparent hover:border-white/20 active:scale-95">
                         <span>Réserver une session</span>
-                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        <!-- SVG Fleche remplaçant FA -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </a>
                 </div>
             </div>
         </div>
 
-        <!-- BANDEROLE DES LOGOS SLEEK & COMPACTE -->
         <div class="absolute bottom-0 w-full z-20 border-t border-white/10 bg-black py-2 md:py-3">
              <div class="max-w-[1800px] mx-auto px-6 md:px-16 lg:px-24 flex flex-col md:flex-row items-center gap-4 md:gap-8">
                 <div class="flex overflow-hidden relative w-full flex-1 mask-image-gradient">
                     <div class="flex gap-10 md:gap-14 overflow-hidden w-full">
                         <div class="flex animate-scroll whitespace-nowrap items-center gap-10 md:gap-14 shrink-0 min-w-full justify-around">
-                            <!-- OPTIMISATION : Changement des PNG en WEBP -->
-                            <img src="1.webp" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 1" width="100" height="32" fetchpriority="high">
-                            <img src="2.webp" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 2" width="100" height="32" fetchpriority="high">
-                            <img src="3.webp" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 3" width="100" height="20" fetchpriority="high">
-                            <img src="4.webp" class="h-5 md:h-6 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 4" width="100" height="24" fetchpriority="high">
-                            <img src="5.webp" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 5" width="100" height="32" fetchpriority="high">
-                            <img src="6.webp" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 6" width="100" height="20">
-                            <img src="7.webp" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 7" width="100" height="20">
-                            <img src="8.webp" class="h-6 md:h-8 w-auto object-contain grayscale opacity-60 transition-all duration-300 hover:grayscale-0 hover:opacity-100" alt="Logo 8" width="100" height="32">
-                            <img src="9.webp" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 9" width="100" height="32">
+                            <img src="1.webp" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 1" width="100" height="32" fetchpriority="high">
+                            <img src="2.webp" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 2" width="100" height="32" fetchpriority="high">
+                            <img src="3.webp" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all hover:opacity-100" alt="Logo 3" width="100" height="20" fetchpriority="high">
+                            <img src="4.webp" class="h-5 md:h-6 w-auto object-contain brightness-0 invert opacity-60 transition-all hover:opacity-100" alt="Logo 4" width="100" height="24" fetchpriority="high">
+                            <img src="5.webp" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 5" width="100" height="32" fetchpriority="high">
+                            <img src="6.webp" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 6" width="100" height="20">
+                            <img src="7.webp" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 7" width="100" height="20">
+                            <img src="8.webp" class="h-6 md:h-8 w-auto object-contain grayscale opacity-60 transition-all hover:grayscale-0 hover:opacity-100" alt="Logo 8" width="100" height="32">
+                            <img src="9.webp" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all hover:opacity-100" alt="Logo 9" width="100" height="32">
                         </div>
                         <div class="flex animate-scroll whitespace-nowrap items-center gap-10 md:gap-14 shrink-0 min-w-full justify-around" aria-hidden="true">
-                            <img src="1.webp" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 1" width="100" height="32" loading="lazy">
-                            <img src="2.webp" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 2" width="100" height="32" loading="lazy">
-                            <img src="3.webp" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 3" width="100" height="20" loading="lazy">
-                            <img src="4.webp" class="h-5 md:h-6 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 4" width="100" height="24" loading="lazy">
-                            <img src="5.webp" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 5" width="100" height="32" loading="lazy">
-                            <img src="6.webp" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 6" width="100" height="20" loading="lazy">
-                            <img src="7.webp" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 7" width="100" height="20" loading="lazy">
-                            <img src="8.webp" class="h-6 md:h-8 w-auto object-contain grayscale opacity-60 transition-all duration-300 hover:grayscale-0 hover:opacity-100" alt="Logo 8" width="100" height="32" loading="lazy">
-                            <img src="9.webp" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 9" width="100" height="32" loading="lazy">
+                            <img src="1.webp" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 1" width="100" height="32" loading="lazy">
+                            <img src="2.webp" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 2" width="100" height="32" loading="lazy">
+                            <img src="3.webp" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all hover:opacity-100" alt="Logo 3" width="100" height="20" loading="lazy">
+                            <img src="4.webp" class="h-5 md:h-6 w-auto object-contain brightness-0 invert opacity-60 transition-all hover:opacity-100" alt="Logo 4" width="100" height="24" loading="lazy">
+                            <img src="5.webp" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 5" width="100" height="32" loading="lazy">
+                            <img src="6.webp" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 6" width="100" height="20" loading="lazy">
+                            <img src="7.webp" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 7" width="100" height="20" loading="lazy">
+                            <img src="8.webp" class="h-6 md:h-8 w-auto object-contain grayscale opacity-60 transition-all hover:grayscale-0 hover:opacity-100" alt="Logo 8" width="100" height="32" loading="lazy">
+                            <img src="9.webp" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all hover:opacity-100" alt="Logo 9" width="100" height="32" loading="lazy">
                         </div>
                     </div>
                 </div>
                 <div class="text-right border-l border-white/20 pl-6 hidden md:flex flex-col justify-center shrink-0">
                     <p class="text-[10px] md:text-xs font-medium text-gray-400 leading-tight select-text">
-                        <span class="text-white font-bold block mb-0.5">+100 entreprises</span>
-                        accompagnées
+                        <span class="text-white font-bold block mb-0.5">+100 entreprises</span> accompagnées
                     </p>
                 </div>
             </div>
@@ -334,20 +209,17 @@
             
             <div class="max-w-[1800px] mx-auto px-6 md:px-16 lg:px-24 w-full flex flex-col md:flex-row items-center justify-between relative z-10 py-10 md:py-0">
                 <div class="md:w-5/12 mb-12 md:mb-0 text-center md:text-left select-text">
-                    <span class="inline-block text-[#131644] font-mono text-xs md:text-sm uppercase tracking-wide mb-6 border-b border-[#131644] pb-1 font-bold">
-                        Impact & Viralité
-                    </span>
+                    <span class="inline-block text-[#131644] font-mono text-xs md:text-sm uppercase tracking-wide mb-6 border-b border-[#131644] pb-1 font-bold">Impact & Viralité</span>
                     <h2 class="text-3xl md:text-6xl font-bold mb-6 leading-tight tracking-tight">On cumule plus d'un<br><span class="text-[#131644]">milliard de vues.</span></h2>
-                    <p class="text-gray-600 text-base md:text-lg mb-8 leading-relaxed font-medium">
-                        Des contenus créés aux côtés de plus de 100 clients. Une infrastructure technique conçue pour la performance.
-                    </p>
+                    <p class="text-gray-600 text-base md:text-lg mb-8 leading-relaxed font-medium">Des contenus créés aux côtés de plus de 100 clients. Une infrastructure technique conçue pour la performance.</p>
                 </div>
 
                 <div class="w-full md:w-1/2 relative h-[350px] md:h-[500px] flex justify-center items-center perspective-[1200px] select-text">
                     <div class="card-stack transform scale-90 md:scale-100">
                         <div class="stat-card card-back bg-[#131644] text-white border border-white/10 p-8 md:p-10 rounded-[2.5rem] flex flex-col justify-between shadow-2xl">
                             <div class="flex justify-between items-start">
-                                <i class="fa-solid fa-users text-3xl opacity-80 select-none"></i>
+                                <!-- SVG Users -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-80 select-none"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                                 <span class="text-xs bg-white/20 text-white px-3 py-1 rounded-full font-mono uppercase tracking-wider select-none">Clients</span>
                             </div>
                             <div>
@@ -357,7 +229,8 @@
                         </div>
                         <div class="stat-card card-front bg-gray-50 text-black p-8 md:p-10 rounded-[2.5rem] flex flex-col justify-between shadow-xl border border-gray-200">
                             <div class="flex justify-between items-start">
-                                <i class="fa-solid fa-eye text-3xl text-black select-none"></i>
+                                <!-- SVG Eye -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-black select-none"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
                                 <span class="text-xs bg-black/10 px-3 py-1 rounded text-black/60 font-mono tracking-wider select-none">Impact</span>
                             </div>
                             <div>
@@ -365,7 +238,9 @@
                                 <div class="text-gray-800 font-medium text-base md:text-lg font-mono">Vues Cumulées</div>
                             </div>
                             <div class="absolute bottom-6 right-6 text-xs text-gray-400 flex items-center gap-2 hidden md:flex font-bold uppercase tracking-widest select-none">
-                                <i class="fa-solid fa-mouse-pointer animate-pulse"></i> Survoler
+                                <!-- SVG Mouse -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="animate-pulse"><path d="m3 3 7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/><path d="m13 13 6 6"/></svg>
+                                Survoler
                             </div>
                         </div>
                     </div>
@@ -375,44 +250,26 @@
 
         <section class="relative z-10 py-24 md:py-40 bg-[#050505] text-white border-t border-white/10 shadow-[0_-50px_100px_rgba(0,0,0,0.1)] flex flex-col items-center justify-center min-h-[70vh] bg-grid-dark">
             <div class="max-w-[1800px] mx-auto px-6 md:px-16 lg:px-24 w-full text-center relative">
-                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[4rem] md:text-[18rem] font-bold text-gray-800 opacity-[0.03] select-none pointer-events-none z-0 tracking-tighter leading-none">
-                    ON AIR
-                </div>
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[4rem] md:text-[18rem] font-bold text-gray-800 opacity-[0.03] select-none pointer-events-none z-0 tracking-tighter leading-none">ON AIR</div>
                 <div class="relative z-10">
                     <span class="text-white/80 font-bold tracking-[0.2em] uppercase text-xs mb-12 md:mb-16 block font-mono border-b border-white/10 pb-4 inline-block select-text">Entreprises & Créateurs</span>
                     
                     <div class="flex flex-col items-center justify-center space-y-2" id="scroll-reveal-container">
-                        
                         <div class="reveal-item flex flex-col md:flex-row items-center justify-center text-xl md:text-5xl font-bold text-white py-6 md:py-8 border-b border-white/5 w-full hover:bg-white/[0.02] transition gap-4">
                             <span class="reveal-text transition-colors duration-500">PODCASTS</span>
-                            <div class="reveal-text-wrapper">
-                                <div class="text-lg md:text-2xl font-bold text-white bg-[#131644] px-6 py-1.5 rounded-full shadow-[0_0_30px_rgba(19,22,68,0.6)] border border-white/10">
-                                    Talk
-                                </div>
-                            </div>
+                            <div class="reveal-text-wrapper"><div class="text-lg md:text-2xl font-bold text-white bg-[#131644] px-6 py-1.5 rounded-full shadow-[0_0_30px_rgba(19,22,68,0.6)] border border-white/10">Talk</div></div>
                             <span class="reveal-text transition-colors duration-500">VIDÉOS BUSINESS</span>
                         </div>
-
                         <div class="reveal-item flex flex-col md:flex-row items-center justify-center text-xl md:text-5xl font-bold text-white py-6 md:py-8 border-b border-white/5 w-full hover:bg-white/[0.02] transition gap-4">
                             <span class="reveal-text transition-colors duration-500">ADS</span>
-                            <div class="reveal-text-wrapper">
-                                <div class="text-lg md:text-2xl font-bold text-white bg-[#131644] px-6 py-1.5 rounded-full shadow-[0_0_30px_rgba(19,22,68,0.6)] border border-white/10">
-                                    Brand
-                                </div>
-                            </div>
+                            <div class="reveal-text-wrapper"><div class="text-lg md:text-2xl font-bold text-white bg-[#131644] px-6 py-1.5 rounded-full shadow-[0_0_30px_rgba(19,22,68,0.6)] border border-white/10">Brand</div></div>
                             <span class="reveal-text transition-colors duration-500">INTERVIEWS</span>
                         </div>
-
                         <div class="reveal-item flex flex-col md:flex-row items-center justify-center text-xl md:text-5xl font-bold text-white py-6 md:py-8 border-b border-white/5 w-full hover:bg-white/[0.02] transition gap-4">
                             <span class="reveal-text transition-colors duration-500">INSTITUTIONS</span>
-                            <div class="reveal-text-wrapper">
-                                <div class="text-lg md:text-2xl font-bold text-white bg-[#131644] px-6 py-1.5 rounded-full shadow-[0_0_30px_rgba(19,22,68,0.6)] border border-white/10">
-                                    Public
-                                </div>
-                            </div>
+                            <div class="reveal-text-wrapper"><div class="text-lg md:text-2xl font-bold text-white bg-[#131644] px-6 py-1.5 rounded-full shadow-[0_0_30px_rgba(19,22,68,0.6)] border border-white/10">Public</div></div>
                             <span class="reveal-text transition-colors duration-500">MARQUES</span>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -429,41 +286,46 @@
         </div>
         <div class="decor-container flex flex-col md:flex-row w-full h-auto md:h-[600px] gap-6 px-6 md:px-16 lg:px-24 max-w-[1800px] mx-auto">
             
-            <!-- Lien vers Gotham -->
+            <!-- OPTIMISATION : Ajout du SRCSET pour mobile -->
             <a href="https://podblend.podyx.com/time-slots?setup=efb50c38-2965-4c54-8050-de243e82755f" target="_blank" rel="noopener noreferrer" class="decor-item block relative rounded-[2rem] overflow-hidden cursor-pointer group border border-gray-100 w-full shadow-lg hover:shadow-2xl">
-                <img src="gotham-_1_.webp" class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 md:group-hover:scale-105" alt="Le Gotham" loading="lazy" width="800" height="600">
+                <img src="gotham-_1_.webp" srcset="gotham-mobile.webp 744w, gotham-_1_.webp 1600w" sizes="(max-width: 768px) 100vw, 50vw" class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 md:group-hover:scale-105" alt="Le Gotham" loading="lazy" width="800" height="600">
                 <div class="absolute inset-0 bg-black/30 md:bg-black/50 md:group-hover:bg-black/10 transition duration-700"></div>
                 <div class="absolute bottom-8 left-8 whitespace-nowrap decor-info transition duration-500">
                     <h3 class="text-2xl md:text-4xl font-bold text-white drop-shadow-lg md:group-hover:translate-y-[-5px] transition-transform duration-500 origin-left">Le Gotham</h3>
                     <div class="opacity-100 md:opacity-0 md:group-hover:opacity-100 transition duration-500 delay-100 mt-3 flex items-center gap-3">
                         <span class="text-xs font-mono border border-white/30 px-3 py-1.5 bg-black/60 text-white backdrop-blur-md rounded-full">Néons Bleus • Gaming • Tech</span>
-                        <span class="text-white bg-[#3b82f6] w-8 h-8 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"><i class="fa-solid fa-arrow-right"></i></span>
+                        <span class="text-white bg-[#3b82f6] w-8 h-8 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <!-- SVG Flèche -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </span>
                     </div>
                 </div>
             </a>
 
-            <!-- Lien vers Santorini -->
             <a href="https://podblend.podyx.com/time-slots?setup=832bdcf5-7fcb-4a04-8589-7c654247fc01" target="_blank" rel="noopener noreferrer" class="decor-item block relative rounded-[2rem] overflow-hidden cursor-pointer group border border-gray-100 w-full shadow-lg hover:shadow-2xl">
-                <img src="santorini-_1_.webp" class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 md:group-hover:scale-105" alt="Le Santorini" loading="lazy" width="800" height="600">
+                <img src="santorini-_1_.webp" srcset="santorini-mobile.webp 744w, santorini-_1_.webp 1600w" sizes="(max-width: 768px) 100vw, 50vw" class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 md:group-hover:scale-105" alt="Le Santorini" loading="lazy" width="800" height="600">
                 <div class="absolute inset-0 bg-black/30 md:bg-black/50 md:group-hover:bg-black/10 transition duration-700"></div>
                 <div class="absolute bottom-8 left-8 whitespace-nowrap decor-info transition duration-500">
                     <h3 class="text-2xl md:text-4xl font-bold text-white drop-shadow-lg md:group-hover:translate-y-[-5px] transition-transform duration-500 origin-left">Le Santorini</h3>
                     <div class="opacity-100 md:opacity-0 md:group-hover:opacity-100 transition duration-500 delay-100 mt-3 flex items-center gap-3">
                         <span class="text-xs font-mono border border-white/30 px-3 py-1.5 bg-black/60 text-white backdrop-blur-md rounded-full">Méditerranéen • Lumineux • Épuré</span>
-                        <span class="text-white bg-[#3b82f6] w-8 h-8 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"><i class="fa-solid fa-arrow-right"></i></span>
+                        <span class="text-white bg-[#3b82f6] w-8 h-8 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </span>
                     </div>
                 </div>
             </a>
 
-            <!-- Lien vers Bibliothèque -->
             <a href="https://podblend.podyx.com/time-slots?setup=747c7b0f-7086-4456-afac-b370601ba604" target="_blank" rel="noopener noreferrer" class="decor-item block relative rounded-[2rem] overflow-hidden cursor-pointer group border border-gray-100 w-full shadow-lg hover:shadow-2xl">
-                <img src="library-_1_.webp" class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 md:group-hover:scale-105" alt="La Bibliothèque" loading="lazy" width="800" height="600">
+                <img src="library-_1_.webp" srcset="library-mobile.webp 744w, library-_1_.webp 1600w" sizes="(max-width: 768px) 100vw, 50vw" class="absolute inset-0 w-full h-full object-cover transform transition-transform duration-700 md:group-hover:scale-105" alt="La Bibliothèque" loading="lazy" width="800" height="600">
                 <div class="absolute inset-0 bg-black/30 md:bg-black/50 md:group-hover:bg-black/10 transition duration-700"></div>
                 <div class="absolute bottom-8 left-8 whitespace-nowrap decor-info transition duration-500">
                     <h3 class="text-2xl md:text-4xl font-bold text-white drop-shadow-lg md:group-hover:translate-y-[-5px] transition-transform duration-500 origin-left">La Bibliothèque</h3>
                     <div class="opacity-100 md:opacity-0 md:group-hover:opacity-100 transition duration-500 delay-100 mt-3 flex items-center gap-3">
                         <span class="text-xs font-mono border border-white/30 px-3 py-1.5 bg-black/60 text-white backdrop-blur-md rounded-full">Vintage • Bibliothèque • Chaleureux</span>
-                        <span class="text-white bg-[#3b82f6] w-8 h-8 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"><i class="fa-solid fa-arrow-right"></i></span>
+                        <span class="text-white bg-[#3b82f6] w-8 h-8 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </span>
                     </div>
                 </div>
             </a>
@@ -485,14 +347,20 @@
                         <button class="switch-btn" id="btn-audio" onclick="switchPricing('audio')">AUDIO</button>
                     </div>
                      <div class="flex gap-4">
-                        <button onclick="scrollPrices('left')" aria-label="Tarifs précédents" class="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 active:scale-95"><i class="fa-solid fa-arrow-left"></i></button>
-                        <button onclick="scrollPrices('right')" aria-label="Tarifs suivants" class="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 active:scale-95"><i class="fa-solid fa-arrow-right"></i></button>
+                        <button onclick="scrollPrices('left')" aria-label="Tarifs précédents" class="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 active:scale-95">
+                            <!-- SVG Fleche gauche -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                        </button>
+                        <button onclick="scrollPrices('right')" aria-label="Tarifs suivants" class="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 active:scale-95">
+                            <!-- SVG Fleche droite -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                        </button>
                     </div>
                 </div>
             </div>
             
             <div class="pricing-scroll-container hide-scroll pb-10 select-text" id="pricing-slider">
-                
+                <!-- Les cartes restent identiques -->
                 <div class="pricing-card video-card bg-white text-black p-8 md:p-10 rounded-[2.5rem] w-full md:min-w-[380px] relative shadow-2xl flex flex-col justify-between min-h-[580px]">
                     <div class="absolute top-6 right-6 bg-[#131644] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-lg">Initial</div>
                     <div>
@@ -600,7 +468,8 @@
                             <h3 class="text-xl md:text-3xl font-bold text-black group-hover:translate-x-2 transition-transform duration-300">Matériel Inclus ?</h3>
                         </div>
                         <div class="text-2xl text-gray-300 group-hover:text-[#131644] transition-all duration-300 faq-icon group-hover:scale-110">
-                            <i class="fa-solid fa-plus"></i>
+                            <!-- SVG Plus -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                         </div>
                     </div>
                     <div class="faq-content select-text">
@@ -616,7 +485,7 @@
                             <h3 class="text-xl md:text-3xl font-bold text-black group-hover:translate-x-2 transition-transform duration-300">Livraison des Fichiers</h3>
                         </div>
                         <div class="text-2xl text-gray-300 group-hover:text-[#131644] transition-all duration-300 faq-icon group-hover:scale-110">
-                            <i class="fa-solid fa-plus"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                         </div>
                     </div>
                     <div class="faq-content select-text">
@@ -632,7 +501,7 @@
                             <h3 class="text-xl md:text-3xl font-bold text-black group-hover:translate-x-2 transition-transform duration-300">Annulation & Retards</h3>
                         </div>
                         <div class="text-2xl text-gray-300 group-hover:text-[#131644] transition-all duration-300 faq-icon group-hover:scale-110">
-                            <i class="fa-solid fa-plus"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                         </div>
                     </div>
                     <div class="faq-content select-text">
@@ -651,7 +520,7 @@
         <div class="max-w-[1800px] mx-auto px-6 md:px-16 lg:px-24 grid grid-cols-1 md:grid-cols-3 gap-12 items-center text-center md:text-left select-text">
             <div>
                  <a href="#" class="block w-24 md:w-32 mb-6 hover:opacity-80 transition cursor-pointer mx-auto md:mx-0 grayscale hover:grayscale-0 duration-500 select-none">
-                    <img src="votre-logo.webp" alt="Podblend Logo" class="w-full h-auto" loading="lazy" width="128" height="36">
+                    <img src="votre-logo-opt.webp" alt="Podblend Logo" class="w-full h-auto" loading="lazy" width="128" height="36">
                 </a>
                 <p class="text-gray-500 text-sm max-w-sm mb-4 mx-auto md:mx-0 font-medium">L'espace de création premium à Paris.</p>
                 <div class="text-gray-600 text-xs tracking-wider">© 2024 Podblend.</div>
@@ -663,27 +532,12 @@
                 <a href="contact.html" class="hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block transform">Contact</a>
             </div>
             <div class="w-full md:w-56 h-32 rounded-2xl overflow-hidden border border-white/10 grayscale hover:grayscale-0 transition-all duration-700 justify-self-center md:justify-self-end shadow-2xl select-none">
-                <!-- OPTIMISATION : Ajout de title pour iframe (Accessibilité) et loading lazy -->
                 <iframe title="Carte Google Maps de l'emplacement du studio Podblend à Gennevilliers" src="https://www.google.com/maps?q=12+Place+Indira+Gandhi+92230+Gennevilliers&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </footer>
 
     <script>
-        // Nouveau comportement de la Navbar (au scroll)
-        document.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                // Dès qu'on scrolle, la navbar devient foncée, floutée et moins haute
-                nav.classList.add('bg-[#050505]/90', 'backdrop-blur-md', 'py-4', 'border-b', 'border-white/10');
-                nav.classList.remove('py-6');
-            } else {
-                // Tout en haut, la navbar redevient totalement transparente
-                nav.classList.remove('bg-[#050505]/90', 'backdrop-blur-md', 'py-4', 'border-b', 'border-white/10');
-                nav.classList.add('py-6');
-            }
-        });
-
         // Force video play for mobile issues
         document.addEventListener('DOMContentLoaded', () => {
             const v = document.getElementById('heroVideo');
@@ -695,16 +549,17 @@
             }
         });
 
+        // Script FAQ mis à jour pour cibler les nouveaux SVG
         function toggleFaq(element) {
             const content = element.querySelector('.faq-content');
-            const icon = element.querySelector('.fa-plus');
+            const icon = element.querySelector('.faq-icon svg');
             const isActive = element.classList.contains('active');
             
             // Close others
             document.querySelectorAll('.faq-item').forEach(item => {
                 item.classList.remove('active');
                 item.querySelector('.faq-content').style.maxHeight = '0';
-                const i = item.querySelector('.fa-plus');
+                const i = item.querySelector('.faq-icon svg');
                 if(i) i.style.transform = 'rotate(0deg)';
             });
             
@@ -712,11 +567,11 @@
             if (!isActive) {
                 element.classList.add('active');
                 content.style.maxHeight = content.scrollHeight + 'px'; // Dynamic height calculation
-                icon.style.transform = 'rotate(45deg)';
+                if(icon) icon.style.transform = 'rotate(45deg)';
             }
         }
 
-        // Pricing Switch CORRIGÉ
+        // Pricing Switch
         function switchPricing(type) {
             const videoCards = document.querySelectorAll('.video-card');
             const audioCards = document.querySelectorAll('.audio-card');
@@ -724,13 +579,11 @@
             const btnAudio = document.getElementById('btn-audio');
             
             if (type === 'video') {
-                // On affiche les cartes vidéo et on cache les cartes audio (et pas l'inverse par erreur)
                 videoCards.forEach(card => card.classList.remove('hidden'));
                 audioCards.forEach(card => card.classList.add('hidden'));
                 btnVideo.classList.add('active');
                 btnAudio.classList.remove('active');
             } else {
-                // On affiche les cartes audio et on cache les cartes vidéo
                 videoCards.forEach(card => card.classList.add('hidden'));
                 audioCards.forEach(card => card.classList.remove('hidden'));
                 btnVideo.classList.remove('active');
@@ -748,12 +601,12 @@
             }
         }
 
-        // --- NEW SCRIPT FOR AUTOMATIC SCROLL REVEAL ---
+        // --- SCROLL REVEAL ---
         document.addEventListener('DOMContentLoaded', () => {
             const observerOptions = {
                 root: null,
                 rootMargin: '0px',
-                threshold: 0.5 // Lower threshold for better mobile responsiveness
+                threshold: 0.5
             };
 
             const observer = new IntersectionObserver((entries) => {
@@ -761,7 +614,6 @@
                     if (entry.isIntersecting) {
                         entry.target.classList.add('is-visible');
                     } else {
-                        // Optional: remove class if you want it to close when scrolling away
                         entry.target.classList.remove('is-visible');
                     }
                 });
