@@ -16,6 +16,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
+    <!-- Script Crisp Chat -->
+    <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="b9c81747-9302-4d6b-a45a-dc3739e9b8e3";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+    
     <script>
         tailwind.config = {
             theme: {
@@ -51,14 +54,6 @@
         }
     </script>
     <style>
-        /* Empêcher la sélection/surlignage sur tout le site */
-        * {
-            user-select: none;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-        }
-
         body {
             background-color: #050505;
             color: white;
@@ -235,12 +230,14 @@
         }
     </style>
 </head>
+<!-- On applique select-none par défaut sur le body pour bloquer les images/décorations, 
+     mais on utilisera "select-text" sur les contenus textuels importants -->
 <body class="antialiased font-sans select-none">
 
     <div class="noise-overlay"></div>
 
-    <!-- Navbar repensée pour s'étendre sur les très grands écrans -->
-    <nav class="fixed w-full z-50 top-0 left-0 px-6 md:px-16 lg:px-24 py-6 mix-blend-difference text-white transition-all duration-300">
+    <!-- CORRECTION NAVBAR : Retrait de mix-blend-difference et ajout de bg-transition via JS -->
+    <nav id="navbar" class="fixed w-full z-50 top-0 left-0 px-6 md:px-16 lg:px-24 py-6 text-white transition-all duration-300">
         <div class="flex justify-between items-center max-w-[1800px] mx-auto w-full">
             <a href="#" class="block w-24 md:w-32 hover:opacity-80 transition cursor-pointer">
                 <img src="votre-logo.webp" alt="Podblend" class="w-full h-auto" width="128" height="36" fetchpriority="high">
@@ -255,28 +252,20 @@
         </div>
     </nav>
 
-    <!-- SECTION HERO : TEXTE ALIGNÉ À GAUCHE & VERTICALEMENT CENTRÉ -->
+    <!-- SECTION HERO -->
     <section id="hero" class="relative min-h-[100dvh] w-full overflow-hidden bg-[#050505] text-white">
         <div class="absolute inset-0 z-0">
-            <!-- Vidéo d'arrière-plan à 100% de luminosité (retrait du filtre brightness) -->
             <video id="heroVideo" preload="auto" autoplay muted loop playsinline webkit-playsinline class="object-cover w-full h-full scale-105">
                 <source src="hero-video.webm" type="video/webm">
                 <source src="hero-video.mp4" type="video/mp4">
             </video>
-            
-            <!-- Calque noir fixe à 10% (filtre d'assombrissement léger) -->
             <div class="absolute inset-0 bg-black/10 pointer-events-none"></div>
-            
-            <!-- Léger dégradé en haut et en bas pour que le menu et les logos restent parfaitement lisibles -->
             <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/50 pointer-events-none"></div>
         </div>
 
-        <!-- Conteneur principal plus large (max-w-[1800px]) pour coller à gauche sur grands écrans -->
         <div class="relative z-10 w-full h-full min-h-[100dvh] flex flex-col justify-center max-w-[1800px] mx-auto px-6 md:px-16 lg:px-24 pt-20 pb-32">
-            <!-- max-w-4xl assure que le texte reste sur la partie gauche de l'écran -->
-            <div class="w-full max-w-4xl animate-fade-in-up">
+            <div class="w-full max-w-4xl animate-fade-in-up select-text">
                 
-                <!-- H1 forcé text-left et ombre portée renforcée pour la lisibilité -->
                 <h1 class="font-bold leading-tight tracking-tight mb-6 text-left">
                     <span class="block text-4xl md:text-5xl lg:text-7xl mb-2 md:mb-4 drop-shadow-2xl">
                         Vous avez déjà vu des vidéos comme celles-ci.
@@ -286,13 +275,12 @@
                     </span>
                 </h1>
                 
-                <!-- Paragraphe forcé text-left -->
                 <p class="text-gray-100 text-base md:text-lg lg:text-xl font-medium max-w-2xl mb-10 leading-relaxed drop-shadow-xl text-left">
                     Un studio clé en main pour podcasts, vidéos d’entreprise, ads et contenus professionnels.
                 </p>
 
-                <!-- Bouton forcé à gauche -->
-                <div class="flex justify-start"> 
+                <!-- Le bouton reste select-none pour éviter les bugs visuels au clic -->
+                <div class="flex justify-start select-none"> 
                     <a href="https://podblend.podyx.com/" target="_blank" rel="noopener noreferrer" class="group bg-white text-black px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-sm md:text-base hover:bg-[#131644] hover:text-white transition-all duration-300 shadow-xl inline-flex items-center gap-3 border-2 border-transparent hover:border-white/20 active:scale-95">
                         <span>Réserver une session</span>
                         <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
@@ -331,7 +319,7 @@
                     </div>
                 </div>
                 <div class="text-right border-l border-white/20 pl-6 hidden md:flex flex-col justify-center shrink-0">
-                    <p class="text-[10px] md:text-xs font-medium text-gray-400 leading-tight">
+                    <p class="text-[10px] md:text-xs font-medium text-gray-400 leading-tight select-text">
                         <span class="text-white font-bold block mb-0.5">+100 entreprises</span>
                         accompagnées
                     </p>
@@ -340,7 +328,7 @@
         </div>
     </section>
 
-    <!-- Transition corrigée : Noir vers Blanc -->
+    <!-- Transition -->
     <div class="w-full h-24 md:h-40 bg-gradient-to-b from-[#050505] to-white relative z-10 pointer-events-none"></div>
 
     <div class="relative">
@@ -348,7 +336,7 @@
             <div class="absolute inset-0 bg-gradient-to-b from-white via-transparent to-transparent h-40 pointer-events-none"></div>
             
             <div class="max-w-[1800px] mx-auto px-6 md:px-16 lg:px-24 w-full flex flex-col md:flex-row items-center justify-between relative z-10 py-10 md:py-0">
-                <div class="md:w-5/12 mb-12 md:mb-0 text-center md:text-left">
+                <div class="md:w-5/12 mb-12 md:mb-0 text-center md:text-left select-text">
                     <span class="inline-block text-[#131644] font-mono text-xs md:text-sm uppercase tracking-wide mb-6 border-b border-[#131644] pb-1 font-bold">
                         Impact & Viralité
                     </span>
@@ -358,12 +346,12 @@
                     </p>
                 </div>
 
-                <div class="w-full md:w-1/2 relative h-[350px] md:h-[500px] flex justify-center items-center perspective-[1200px]">
+                <div class="w-full md:w-1/2 relative h-[350px] md:h-[500px] flex justify-center items-center perspective-[1200px] select-text">
                     <div class="card-stack transform scale-90 md:scale-100">
                         <div class="stat-card card-back bg-[#131644] text-white border border-white/10 p-8 md:p-10 rounded-[2.5rem] flex flex-col justify-between shadow-2xl">
                             <div class="flex justify-between items-start">
-                                <i class="fa-solid fa-users text-3xl opacity-80"></i>
-                                <span class="text-xs bg-white/20 text-white px-3 py-1 rounded-full font-mono uppercase tracking-wider">Clients</span>
+                                <i class="fa-solid fa-users text-3xl opacity-80 select-none"></i>
+                                <span class="text-xs bg-white/20 text-white px-3 py-1 rounded-full font-mono uppercase tracking-wider select-none">Clients</span>
                             </div>
                             <div>
                                 <div class="text-5xl md:text-7xl font-bold mb-2 tracking-tighter">100+</div>
@@ -372,14 +360,14 @@
                         </div>
                         <div class="stat-card card-front bg-gray-50 text-black p-8 md:p-10 rounded-[2.5rem] flex flex-col justify-between shadow-xl border border-gray-200">
                             <div class="flex justify-between items-start">
-                                <i class="fa-solid fa-eye text-3xl text-black"></i>
-                                <span class="text-xs bg-black/10 px-3 py-1 rounded text-black/60 font-mono tracking-wider">Impact</span>
+                                <i class="fa-solid fa-eye text-3xl text-black select-none"></i>
+                                <span class="text-xs bg-black/10 px-3 py-1 rounded text-black/60 font-mono tracking-wider select-none">Impact</span>
                             </div>
                             <div>
                                 <div class="text-5xl md:text-7xl font-bold mb-2 tracking-tighter">+1 Md</div>
                                 <div class="text-gray-800 font-medium text-base md:text-lg font-mono">Vues Cumulées</div>
                             </div>
-                            <div class="absolute bottom-6 right-6 text-xs text-gray-400 flex items-center gap-2 hidden md:flex font-bold uppercase tracking-widest">
+                            <div class="absolute bottom-6 right-6 text-xs text-gray-400 flex items-center gap-2 hidden md:flex font-bold uppercase tracking-widest select-none">
                                 <i class="fa-solid fa-mouse-pointer animate-pulse"></i> Survoler
                             </div>
                         </div>
@@ -394,7 +382,7 @@
                     ON AIR
                 </div>
                 <div class="relative z-10">
-                    <span class="text-white/80 font-bold tracking-[0.2em] uppercase text-xs mb-12 md:mb-16 block font-mono border-b border-white/10 pb-4 inline-block">Entreprises & Créateurs</span>
+                    <span class="text-white/80 font-bold tracking-[0.2em] uppercase text-xs mb-12 md:mb-16 block font-mono border-b border-white/10 pb-4 inline-block select-text">Entreprises & Créateurs</span>
                     
                     <div class="flex flex-col items-center justify-center space-y-2" id="scroll-reveal-container">
                         
@@ -434,11 +422,11 @@
         </section>
     </div>
 
-    <!-- Transition corrigée : Noir vers Blanc -->
+    <!-- Transition : Noir vers Blanc -->
     <div class="w-full h-24 md:h-40 bg-gradient-to-b from-[#050505] to-white relative z-10 pointer-events-none"></div>
 
     <section class="relative z-10 py-24 md:py-32 bg-white text-black overflow-hidden bg-grid-light">
-        <div class="px-6 md:px-16 lg:px-24 mb-16 max-w-[1800px] mx-auto text-center md:text-left">
+        <div class="px-6 md:px-16 lg:px-24 mb-16 max-w-[1800px] mx-auto text-center md:text-left select-text">
             <h2 class="text-4xl md:text-5xl font-bold tracking-tight">Nos Décors</h2>
             <p class="text-gray-400 mt-3 font-mono text-sm tracking-widest uppercase">[ CHOOSE YOUR VIBE ]</p>
         </div>
@@ -489,12 +477,12 @@
 
     <section id="tarifs" class="relative z-10 py-24 md:py-40 bg-[#050505] text-white overflow-hidden bg-grid-dark">
         <div class="max-w-[1800px] mx-auto px-6 md:px-16 lg:px-24">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-20 text-center md:text-left">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-20 text-center md:text-left select-text">
                 <div class="w-full md:w-auto">
                     <h2 class="text-4xl md:text-6xl font-bold tracking-tight">Nos Tarifs</h2>
                     <p class="text-gray-400 mt-3 font-mono text-sm tracking-widest uppercase">/// Formules adaptées</p>
                 </div>
-                <div class="mt-10 md:mt-0 flex flex-col md:flex-row items-center gap-8 w-full md:w-auto">
+                <div class="mt-10 md:mt-0 flex flex-col md:flex-row items-center gap-8 w-full md:w-auto select-none">
                     <div class="switch-container">
                         <button class="switch-btn active" id="btn-video" onclick="switchPricing('video')">VIDÉO</button>
                         <button class="switch-btn" id="btn-audio" onclick="switchPricing('audio')">AUDIO</button>
@@ -506,7 +494,7 @@
                 </div>
             </div>
             
-            <div class="pricing-scroll-container hide-scroll pb-10" id="pricing-slider">
+            <div class="pricing-scroll-container hide-scroll pb-10 select-text" id="pricing-slider">
                 
                 <div class="pricing-card video-card bg-white text-black p-8 md:p-10 rounded-[2.5rem] w-full md:min-w-[380px] relative shadow-2xl flex flex-col justify-between min-h-[580px]">
                     <div class="absolute top-6 right-6 bg-[#131644] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-lg">Initial</div>
@@ -517,14 +505,13 @@
                         <div class="w-full h-px bg-gray-200 my-8"></div>
                         <p class="text-xs font-bold text-gray-500 mb-6 uppercase tracking-widest">Inclus :</p>
                         <ul class="space-y-4 text-sm font-semibold text-gray-800">
-                             <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-[#3b82f6]"></span> Opérateur sur place</li>
-                            <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-[#3b82f6]"></span> 3 caméras Sony A7IV</li>
-                            <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-[#3b82f6]"></span> 4 micros Shure MV7</li>
-                             <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-[#3b82f6]"></span> Fichiers bruts (48h)</li>
+                             <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-[#3b82f6] shrink-0"></span> Opérateur sur place</li>
+                            <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-[#3b82f6] shrink-0"></span> 3 caméras Sony A7IV</li>
+                            <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-[#3b82f6] shrink-0"></span> 4 micros Shure MV7</li>
+                             <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-[#3b82f6] shrink-0"></span> Fichiers bruts (48h)</li>
                         </ul>
                     </div>
-                    <!-- Remplacement par un lien interactif -->
-                    <a href="https://podblend.podyx.com/" target="_blank" rel="noopener noreferrer" class="block text-center w-full py-5 bg-black text-white rounded-2xl hover:bg-[#131644] transition-all duration-300 font-bold uppercase text-xs tracking-[0.2em] mt-8 shadow-xl hover:shadow-2xl transform hover:-translate-y-2 hover:scale-105 active:scale-95">Réserver</a>
+                    <a href="https://podblend.podyx.com/" target="_blank" rel="noopener noreferrer" class="block text-center w-full py-5 bg-black text-white rounded-2xl hover:bg-[#131644] transition-all duration-300 font-bold uppercase text-xs tracking-[0.2em] mt-8 shadow-xl hover:shadow-2xl transform hover:-translate-y-2 hover:scale-105 active:scale-95 select-none">Réserver</a>
                 </div>
 
                 <div class="pricing-card video-card bg-[#131644] text-white p-8 md:p-10 rounded-[2.5rem] w-full md:min-w-[380px] relative shadow-[0_20px_50px_rgba(19,22,68,0.5)] flex flex-col justify-between min-h-[580px] border border-white/10 transform md:scale-105 z-10">
@@ -536,12 +523,12 @@
                         <div class="w-full h-px bg-white/10 my-8"></div>
                         <p class="text-xs font-bold text-blue-200 mb-6 uppercase tracking-widest">Tout Initial +</p>
                         <ul class="space-y-4 text-sm font-semibold text-white">
-                             <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-white"></span> Pré-montage horizontal</li>
-                            <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-white"></span> Synchro audio/vidéo</li>
-                            <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-white"></span> Prêt à publier</li>
+                             <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-white shrink-0"></span> Pré-montage horizontal</li>
+                            <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-white shrink-0"></span> Synchro audio/vidéo</li>
+                            <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-white shrink-0"></span> Prêt à publier</li>
                         </ul>
                     </div>
-                    <a href="https://podblend.podyx.com/" target="_blank" rel="noopener noreferrer" class="block text-center w-full py-5 bg-white text-black rounded-2xl hover:bg-gray-100 transition-all duration-300 font-bold uppercase text-xs tracking-[0.2em] mt-8 shadow-xl hover:shadow-2xl transform hover:-translate-y-2 hover:scale-105 active:scale-95">Réserver</a>
+                    <a href="https://podblend.podyx.com/" target="_blank" rel="noopener noreferrer" class="block text-center w-full py-5 bg-white text-black rounded-2xl hover:bg-gray-100 transition-all duration-300 font-bold uppercase text-xs tracking-[0.2em] mt-8 shadow-xl hover:shadow-2xl transform hover:-translate-y-2 hover:scale-105 active:scale-95 select-none">Réserver</a>
                 </div>
 
                 <div class="pricing-card video-card bg-white text-black p-8 md:p-10 rounded-[2.5rem] w-full md:min-w-[380px] relative shadow-2xl flex flex-col justify-between min-h-[580px]">
@@ -552,13 +539,13 @@
                         <div class="w-full h-px bg-gray-200 my-8"></div>
                         <p class="text-xs font-bold text-gray-500 mb-6 uppercase tracking-widest">All Inclusive :</p>
                         <ul class="space-y-4 text-sm font-semibold text-gray-800">
-                             <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-[#3b82f6]"></span> Tournage + Dérush</li>
-                            <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-[#3b82f6]"></span> Montage & Mixage</li>
-                             <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-[#3b82f6]"></span> Intro Dynamique</li>
-                             <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-[#3b82f6]"></span> Colorimétrie</li>
+                             <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-[#3b82f6] shrink-0"></span> Tournage + Dérush</li>
+                            <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-[#3b82f6] shrink-0"></span> Montage & Mixage</li>
+                             <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-[#3b82f6] shrink-0"></span> Intro Dynamique</li>
+                             <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-[#3b82f6] shrink-0"></span> Colorimétrie</li>
                         </ul>
                     </div>
-                    <a href="https://podblend.podyx.com/" target="_blank" rel="noopener noreferrer" class="block text-center w-full py-5 border-2 border-black text-black rounded-2xl hover:bg-black hover:text-white transition-all duration-300 font-bold uppercase text-xs tracking-[0.2em] mt-8 hover:shadow-xl transform hover:-translate-y-2 hover:scale-105 active:scale-95">Choisir</a>
+                    <a href="https://podblend.podyx.com/" target="_blank" rel="noopener noreferrer" class="block text-center w-full py-5 border-2 border-black text-black rounded-2xl hover:bg-black hover:text-white transition-all duration-300 font-bold uppercase text-xs tracking-[0.2em] mt-8 hover:shadow-xl transform hover:-translate-y-2 hover:scale-105 active:scale-95 select-none">Choisir</a>
                 </div>
 
                 <div class="pricing-card audio-card bg-white text-black p-8 md:p-10 rounded-[2.5rem] w-full md:min-w-[380px] relative shadow-2xl flex flex-col justify-between min-h-[580px] hidden">
@@ -568,13 +555,13 @@
                         <span class="text-xs text-gray-500 font-mono uppercase tracking-widest font-bold">/ Heure</span>
                         <div class="w-full h-px bg-gray-200 my-8"></div>
                         <ul class="space-y-4 text-sm font-semibold text-gray-800">
-                             <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-[#3b82f6]"></span> Opérateur sur place</li>
-                            <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-[#3b82f6]"></span> 4 micros Shure MV7+</li>
-                            <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-[#3b82f6]"></span> Table de mixage Rodecaster Pro</li>
-                             <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-[#3b82f6]"></span> Fichiers jour même</li>
+                             <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-[#3b82f6] shrink-0"></span> Opérateur sur place</li>
+                            <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-[#3b82f6] shrink-0"></span> 4 micros Shure MV7+</li>
+                            <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-[#3b82f6] shrink-0"></span> Table de mixage Rodecaster Pro</li>
+                             <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-[#3b82f6] shrink-0"></span> Fichiers jour même</li>
                         </ul>
                     </div>
-                    <a href="https://podblend.podyx.com/" target="_blank" rel="noopener noreferrer" class="block text-center w-full py-5 bg-black text-white rounded-2xl hover:bg-[#131644] transition-all duration-300 font-bold uppercase text-xs tracking-[0.2em] mt-8 shadow-xl hover:shadow-2xl transform hover:-translate-y-2 hover:scale-105 active:scale-95">Réserver</a>
+                    <a href="https://podblend.podyx.com/" target="_blank" rel="noopener noreferrer" class="block text-center w-full py-5 bg-black text-white rounded-2xl hover:bg-[#131644] transition-all duration-300 font-bold uppercase text-xs tracking-[0.2em] mt-8 shadow-xl hover:shadow-2xl transform hover:-translate-y-2 hover:scale-105 active:scale-95 select-none">Réserver</a>
                 </div>
 
                 <div class="pricing-card audio-card bg-[#131644] text-white p-8 md:p-10 rounded-[2.5rem] w-full md:min-w-[380px] relative shadow-[0_20px_50px_rgba(19,22,68,0.5)] flex flex-col justify-between min-h-[580px] border border-white/10 hidden">
@@ -585,13 +572,13 @@
                         <span class="text-xs text-blue-200 font-mono uppercase tracking-widest font-bold">/ Heure</span>
                         <div class="w-full h-px bg-white/10 my-8"></div>
                         <ul class="space-y-4 text-sm font-semibold text-white">
-                             <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-white"></span> Formule Audio Simple</li>
-                            <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-white"></span> Nettoyage bruits</li>
-                            <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-white"></span> Montage (Intro/Outro)</li>
-                             <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-white"></span> Mixage Pro</li>
+                             <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-white shrink-0"></span> Formule Audio Simple</li>
+                            <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-white shrink-0"></span> Nettoyage bruits</li>
+                            <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-white shrink-0"></span> Montage (Intro/Outro)</li>
+                             <li class="flex items-center gap-4"><span class="w-2 h-2 rounded-full bg-white shrink-0"></span> Mixage Pro</li>
                         </ul>
                     </div>
-                    <a href="https://podblend.podyx.com/" target="_blank" rel="noopener noreferrer" class="block text-center w-full py-5 bg-white text-black rounded-2xl hover:bg-gray-100 transition-all duration-300 font-bold uppercase text-xs tracking-[0.2em] mt-8 shadow-xl hover:shadow-2xl transform hover:-translate-y-2 hover:scale-105 active:scale-95">Réserver</a>
+                    <a href="https://podblend.podyx.com/" target="_blank" rel="noopener noreferrer" class="block text-center w-full py-5 bg-white text-black rounded-2xl hover:bg-gray-100 transition-all duration-300 font-bold uppercase text-xs tracking-[0.2em] mt-8 shadow-xl hover:shadow-2xl transform hover:-translate-y-2 hover:scale-105 active:scale-95 select-none">Réserver</a>
                 </div>
 
             </div>
@@ -604,7 +591,7 @@
     <section id="faq" class="relative z-10 py-24 md:py-32 bg-white text-black bg-grid-light">
         <div class="max-w-5xl mx-auto px-6 md:px-16 lg:px-24">
             <!-- Increased bottom margin to fix alignment visual -->
-            <div class="flex flex-col md:flex-row justify-between items-end mb-20 border-b border-gray-200 pb-10 text-center md:text-left pt-12 md:pt-0">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-20 border-b border-gray-200 pb-10 text-center md:text-left pt-12 md:pt-0 select-text">
                 <div class="w-full md:w-auto"><h2 class="text-5xl md:text-7xl font-bold uppercase tracking-tighter">FAQ<span class="text-[#131644]">.</span></h2></div>
             </div>
 
@@ -619,7 +606,7 @@
                             <i class="fa-solid fa-plus"></i>
                         </div>
                     </div>
-                    <div class="faq-content">
+                    <div class="faq-content select-text">
                         <p class="text-gray-600 text-base md:text-lg leading-relaxed font-medium pl-10 md:pl-20 pr-4 max-w-3xl">
                             Tout est prêt à votre arrivée. Le studio comprend 4 micros Shure SM7B, la console Rodecaster Pro II, et l'éclairage cinéma. Pour l'option vidéo, 3 caméras Sony A7S III sont installées et calibrées.
                         </p>
@@ -635,7 +622,7 @@
                             <i class="fa-solid fa-plus"></i>
                         </div>
                     </div>
-                    <div class="faq-content">
+                    <div class="faq-content select-text">
                         <p class="text-gray-600 text-base md:text-lg leading-relaxed font-medium pl-10 md:pl-20 pr-4 max-w-3xl">
                             Vous pouvez repartir avec vos cartes SD immédiatement après la séance. Sinon, nous uploadons les rushes bruts (WAV/MP4) sur un serveur sécurisé sous 24h.
                         </p>
@@ -651,7 +638,7 @@
                             <i class="fa-solid fa-plus"></i>
                         </div>
                     </div>
-                    <div class="faq-content">
+                    <div class="faq-content select-text">
                         <p class="text-gray-600 text-base md:text-lg leading-relaxed font-medium pl-10 md:pl-20 pr-4 max-w-3xl">
                             Annulation gratuite jusqu'à 24h avant la session. En cas de retard, la session se termine à l'heure prévue si une autre réservation suit.
                         </p>
@@ -663,14 +650,14 @@
     
     <div class="w-full h-24 md:h-40 bg-gradient-to-b from-white to-[#020202] relative z-10 pointer-events-none"></div>
 
-    <footer class="relative z-10 py-20 bg-[#020202] text-white border-t border-white/5">
-        <div class="max-w-[1800px] mx-auto px-6 md:px-16 lg:px-24 grid grid-cols-1 md:grid-cols-3 gap-12 items-center text-center md:text-left">
+    <footer class="relative z-10 py-20 bg-[#020202] text-white border-t border-white/5 pb-32">
+        <div class="max-w-[1800px] mx-auto px-6 md:px-16 lg:px-24 grid grid-cols-1 md:grid-cols-3 gap-12 items-center text-center md:text-left select-text">
             <div>
-                 <a href="#" class="block w-24 md:w-32 mb-6 hover:opacity-80 transition cursor-pointer mx-auto md:mx-0 grayscale hover:grayscale-0 duration-500">
-                    <img src="votre-logo.webp" alt="Studio Logo" class="w-full h-auto" loading="lazy" width="128" height="36">
+                 <a href="#" class="block w-24 md:w-32 mb-6 hover:opacity-80 transition cursor-pointer mx-auto md:mx-0 grayscale hover:grayscale-0 duration-500 select-none">
+                    <img src="votre-logo.webp" alt="Podblend Logo" class="w-full h-auto" loading="lazy" width="128" height="36">
                 </a>
                 <p class="text-gray-500 text-sm max-w-sm mb-4 mx-auto md:mx-0 font-medium">L'espace de création premium à Paris.</p>
-                <div class="text-gray-600 text-xs tracking-wider">© 2024 Studio Creation.</div>
+                <div class="text-gray-600 text-xs tracking-wider">© 2024 Podblend.</div>
             </div>
             <div class="flex flex-col gap-3 text-sm text-gray-400 items-center md:items-start font-bold tracking-wide">
                 <a href="legal.html" class="hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block transform">Mentions Légales</a>
@@ -678,7 +665,7 @@
                 <a href="cgv.html" class="hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block transform">CGV</a>
                 <a href="contact.html" class="hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block transform">Contact</a>
             </div>
-            <div class="w-full md:w-56 h-32 rounded-2xl overflow-hidden border border-white/10 grayscale hover:grayscale-0 transition-all duration-700 justify-self-center md:justify-self-end shadow-2xl">
+            <div class="w-full md:w-56 h-32 rounded-2xl overflow-hidden border border-white/10 grayscale hover:grayscale-0 transition-all duration-700 justify-self-center md:justify-self-end shadow-2xl select-none">
                 <!-- OPTIMISATION : Ajout de title pour iframe (Accessibilité) et loading lazy -->
                 <iframe title="Carte Google Maps de l'emplacement du studio Podblend à Gennevilliers" src="https://www.google.com/maps?q=12+Place+Indira+Gandhi+92230+Gennevilliers&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
@@ -686,6 +673,20 @@
     </footer>
 
     <script>
+        // Nouveau comportement de la Navbar (au scroll)
+        document.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                // Dès qu'on scrolle, la navbar devient foncée, floutée et moins haute
+                nav.classList.add('bg-[#050505]/90', 'backdrop-blur-md', 'py-4', 'border-b', 'border-white/10');
+                nav.classList.remove('py-6');
+            } else {
+                // Tout en haut, la navbar redevient totalement transparente
+                nav.classList.remove('bg-[#050505]/90', 'backdrop-blur-md', 'py-4', 'border-b', 'border-white/10');
+                nav.classList.add('py-6');
+            }
+        });
+
         // Force video play for mobile issues
         document.addEventListener('DOMContentLoaded', () => {
             const v = document.getElementById('heroVideo');
@@ -718,7 +719,7 @@
             }
         }
 
-        // Pricing Switch
+        // Pricing Switch CORRIGÉ
         function switchPricing(type) {
             const videoCards = document.querySelectorAll('.video-card');
             const audioCards = document.querySelectorAll('.audio-card');
@@ -726,11 +727,13 @@
             const btnAudio = document.getElementById('btn-audio');
             
             if (type === 'video') {
+                // On affiche les cartes vidéo et on cache les cartes audio (et pas l'inverse par erreur)
                 videoCards.forEach(card => card.classList.remove('hidden'));
-                videoCards.forEach(card => card.classList.add('hidden'));
+                audioCards.forEach(card => card.classList.add('hidden'));
                 btnVideo.classList.add('active');
                 btnAudio.classList.remove('active');
             } else {
+                // On affiche les cartes audio et on cache les cartes vidéo
                 videoCards.forEach(card => card.classList.add('hidden'));
                 audioCards.forEach(card => card.classList.remove('hidden'));
                 btnVideo.classList.remove('active');
