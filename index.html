@@ -13,7 +13,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- /!\ À REMPLACER PAR TON FICHIER output.css SUR GITHUB POUR LES PERFORMANCES /!\ -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
     <!-- Script Crisp Chat -->
@@ -230,13 +232,10 @@
         }
     </style>
 </head>
-<!-- On applique select-none par défaut sur le body pour bloquer les images/décorations, 
-     mais on utilisera "select-text" sur les contenus textuels importants -->
 <body class="antialiased font-sans select-none">
 
     <div class="noise-overlay"></div>
 
-    <!-- CORRECTION NAVBAR : Retrait de mix-blend-difference et ajout de bg-transition via JS -->
     <nav id="navbar" class="fixed w-full z-50 top-0 left-0 px-6 md:px-16 lg:px-24 py-6 text-white transition-all duration-300">
         <div class="flex justify-between items-center max-w-[1800px] mx-auto w-full">
             <a href="#" class="block w-24 md:w-32 hover:opacity-80 transition cursor-pointer">
@@ -255,7 +254,8 @@
     <!-- SECTION HERO -->
     <section id="hero" class="relative min-h-[100dvh] w-full overflow-hidden bg-[#050505] text-white">
         <div class="absolute inset-0 z-0">
-            <video id="heroVideo" preload="auto" autoplay muted loop playsinline webkit-playsinline class="object-cover w-full h-full scale-105">
+            <!-- OPTIMISATION : aria-hidden et poster ajoutés pour la vidéo -->
+            <video id="heroVideo" aria-hidden="true" poster="hero-poster.webp" preload="auto" autoplay muted loop playsinline webkit-playsinline class="object-cover w-full h-full scale-105">
                 <source src="hero-video.webm" type="video/webm">
                 <source src="hero-video.mp4" type="video/mp4">
             </video>
@@ -279,7 +279,6 @@
                     Un studio clé en main pour podcasts, vidéos d’entreprise, ads et contenus professionnels.
                 </p>
 
-                <!-- Le bouton reste select-none pour éviter les bugs visuels au clic -->
                 <div class="flex justify-start select-none"> 
                     <a href="https://podblend.podyx.com/" target="_blank" rel="noopener noreferrer" class="group bg-white text-black px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-sm md:text-base hover:bg-[#131644] hover:text-white transition-all duration-300 shadow-xl inline-flex items-center gap-3 border-2 border-transparent hover:border-white/20 active:scale-95">
                         <span>Réserver une session</span>
@@ -295,26 +294,27 @@
                 <div class="flex overflow-hidden relative w-full flex-1 mask-image-gradient">
                     <div class="flex gap-10 md:gap-14 overflow-hidden w-full">
                         <div class="flex animate-scroll whitespace-nowrap items-center gap-10 md:gap-14 shrink-0 min-w-full justify-around">
-                            <img src="1.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 1" width="100" height="32" fetchpriority="high">
-                            <img src="2.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 2" width="100" height="32" fetchpriority="high">
-                            <img src="3.png" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 3" width="100" height="20" fetchpriority="high">
-                            <img src="4.png" class="h-5 md:h-6 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 4" width="100" height="24" fetchpriority="high">
-                            <img src="5.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 5" width="100" height="32" fetchpriority="high">
-                            <img src="6.png" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 6" width="100" height="20">
-                            <img src="7.png" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 7" width="100" height="20">
-                            <img src="8.png" class="h-6 md:h-8 w-auto object-contain grayscale opacity-60 transition-all duration-300 hover:grayscale-0 hover:opacity-100" alt="Logo 8" width="100" height="32">
-                            <img src="9.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 9" width="100" height="32">
+                            <!-- OPTIMISATION : Changement des PNG en WEBP -->
+                            <img src="1.webp" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 1" width="100" height="32" fetchpriority="high">
+                            <img src="2.webp" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 2" width="100" height="32" fetchpriority="high">
+                            <img src="3.webp" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 3" width="100" height="20" fetchpriority="high">
+                            <img src="4.webp" class="h-5 md:h-6 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 4" width="100" height="24" fetchpriority="high">
+                            <img src="5.webp" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 5" width="100" height="32" fetchpriority="high">
+                            <img src="6.webp" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 6" width="100" height="20">
+                            <img src="7.webp" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 7" width="100" height="20">
+                            <img src="8.webp" class="h-6 md:h-8 w-auto object-contain grayscale opacity-60 transition-all duration-300 hover:grayscale-0 hover:opacity-100" alt="Logo 8" width="100" height="32">
+                            <img src="9.webp" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 9" width="100" height="32">
                         </div>
                         <div class="flex animate-scroll whitespace-nowrap items-center gap-10 md:gap-14 shrink-0 min-w-full justify-around" aria-hidden="true">
-                            <img src="1.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 1" width="100" height="32" loading="lazy">
-                            <img src="2.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 2" width="100" height="32" loading="lazy">
-                            <img src="3.png" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 3" width="100" height="20" loading="lazy">
-                            <img src="4.png" class="h-5 md:h-6 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 4" width="100" height="24" loading="lazy">
-                            <img src="5.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 5" width="100" height="32" loading="lazy">
-                            <img src="6.png" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 6" width="100" height="20" loading="lazy">
-                            <img src="7.png" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 7" width="100" height="20" loading="lazy">
-                            <img src="8.png" class="h-6 md:h-8 w-auto object-contain grayscale opacity-60 transition-all duration-300 hover:grayscale-0 hover:opacity-100" alt="Logo 8" width="100" height="32" loading="lazy">
-                            <img src="9.png" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 9" width="100" height="32" loading="lazy">
+                            <img src="1.webp" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 1" width="100" height="32" loading="lazy">
+                            <img src="2.webp" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 2" width="100" height="32" loading="lazy">
+                            <img src="3.webp" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 3" width="100" height="20" loading="lazy">
+                            <img src="4.webp" class="h-5 md:h-6 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 4" width="100" height="24" loading="lazy">
+                            <img src="5.webp" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 5" width="100" height="32" loading="lazy">
+                            <img src="6.webp" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 6" width="100" height="20" loading="lazy">
+                            <img src="7.webp" class="h-4 md:h-5 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:brightness-100 hover:invert-0 hover:opacity-100" alt="Logo 7" width="100" height="20" loading="lazy">
+                            <img src="8.webp" class="h-6 md:h-8 w-auto object-contain grayscale opacity-60 transition-all duration-300 hover:grayscale-0 hover:opacity-100" alt="Logo 8" width="100" height="32" loading="lazy">
+                            <img src="9.webp" class="h-6 md:h-8 w-auto object-contain brightness-0 invert opacity-60 transition-all duration-300 hover:opacity-100" alt="Logo 9" width="100" height="32" loading="lazy">
                         </div>
                     </div>
                 </div>
